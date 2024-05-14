@@ -1,5 +1,7 @@
+{% set reqfile = "requirements.txt" %}
+{% set testsfolder = "test" %}
 {% set name = "auto-ts" %}
-{% set version = "0.0.90" %}
+{% set version = "0.0.92" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +9,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/auto_ts-{{ version }}.tar.gz
-  sha256: 9e1ea178ee19e874a3ffa747b877594b68d01bb7c8b4f2346fa12bab6257a137
+  sha256: e62c0fec5591d5c107762118e6ab3b2a90a964680ae5e82b82126640f579074f
 
 build:
   number: 0
   noarch: python
-  script: 
+  script:
     ## Show the rendered recipe
     - echo -e "\n>>> Show recipe '{{ name }}/meta.yaml' <<<\n\n"
     - echo -e $(cat $RECIPE_DIR/meta.yaml)  # [not win]
