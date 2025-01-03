@@ -8,11 +8,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/auto_ts-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/auto_ts-{{ version }}.tar.gz
   sha256: e62c0fec5591d5c107762118e6ab3b2a90a964680ae5e82b82126640f579074f
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script:
     ## Show the rendered recipe
@@ -35,10 +35,10 @@ build:
 
 requirements:
   host:
-    - python >=3.7
+    - python {{ python_min }}
     - pip
   run:
-    - python >=3.7
+    - python >={{ python_min }}
     - ipython
     - jupyter
     - pmdarima
@@ -64,6 +64,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/AutoViML/Auto_TS
